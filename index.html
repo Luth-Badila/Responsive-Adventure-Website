@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Responsive Travel Website</title>
+</head>
+
+<body>
+    <section>
+        <div class="bannerVideo" id="slideShow">
+            <video src="videos/tokyo.mp4" class="active" autoplay muted loop></video>
+            <video src="videos/paris.mp4" autoplay muted loop></video>
+            <video src="videos/seville.mp4" autoplay muted loop></video>
+            <video src="videos/mecca.mp4" autoplay muted loop></video>
+        </div>
+        <div class="container">
+            <!-- Navbat -->
+            <header id="navbar">
+                <a href="#" class="logo">Dunyo</a>
+                <ul>
+                    <li>
+                        <a href="#" class="active">Ngarep</a>
+                    </li>
+                    <li>
+                        <a href="#">Tujuan</a>
+                    </li>
+                    <li>
+                        <a href="#">Babagan Awakdewe</a>
+                    </li>
+                    <li>
+                        <a href="#">Kontak</a>
+                    </li>
+                </ul>
+                <span class="menuIcon" onclick="toggleMenu();"></span>
+            </header>
+            <!-- Content or Main -->
+            <div class="content">
+                <div class="bannerText" id="slideShowText">
+                    <div>
+                        <h2>Tokyo</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta dolores sint voluptates facere, accusantium maxime similique ad perspiciatis molestiae ipsam.</p>
+                    </div>
+                    <div>
+                        <h2>Paris</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta dolores sint voluptates facere, accusantium maxime similique ad perspiciatis molestiae ipsam.</p>
+                    </div>
+                    <div>
+                        <h2>Seville</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta dolores sint voluptates facere, accusantium maxime similique ad perspiciatis molestiae ipsam.</p>
+                    </div>
+                    <div>
+                        <h2>Mecca</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta dolores sint voluptates facere, accusantium maxime similique ad perspiciatis molestiae ipsam.</p>
+                    </div>
+                </div>
+            </div>
+            <ul class="sci">
+                <li>
+                    <a href="#"><img src="images/facebook.png" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="images/instagram.png" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="images/twitter.png" alt=""></a>
+                </li>
+            </ul>
+            <!-- Controls -->
+            <ul class="controls">
+                <li onclick="prevSlide();prevSlideText();"><img src="images/left.png" alt="left-arrow"></li>
+                <li onclick="nextSlide();nextSlideText();"><img src=" images/right.png " alt="right-arrow "></li>
+            </ul>
+        </div>
+    </section>
+
+
+    <script>
+        // Slide Show Text and Video 
+        const slideShow = document.getElementById('slideShow');
+        const slides = slideShow.getElementsByTagName('video');
+        let index = 0;
+
+        function nextSlide() {
+            slides[index].classList.remove('active');
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
+        }
+
+        function prevSlide() {
+            slides[index].classList.remove('active');
+            index = (index - 1 + slides.length) % slides.length;
+            slides[index].classList.add('active');
+        }
+
+        const slideShowText = document.getElementById('slideShowText');
+        const slidesText = slideShowText.getElementsByTagName('div');
+        let i = 0;
+
+        function nextSlideText() {
+            slidesText[i].classList.remove('active');
+            i = (i + 1) % slidesText.length;
+            slidesText[i].classList.add('active');
+        }
+
+        function prevSlideText() {
+            slidesText[i].classList.remove('active');
+            i = (i - 1 + slidesText.length) % slidesText.length;
+            slidesText[i].classList.add('active');
+        }
+
+        // Menu Responsive Button
+
+        function toggleMenu() {
+            const menuIcon = document.querySelector('.menuIcon');
+            const navbar = document.getElementById('navbar');
+            menuIcon.classList.toggle('active');
+            navbar.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
